@@ -22,7 +22,9 @@ Notes.NotesNoteRoute = Ember.Route.extend({
 });
 
 Notes.NotesController = Ember.ArrayController.extend({
+    needs: ['notesNote'],
     newNoteName: null,
+    selectedNoteBinding: 'controllers.notesNote.model',
 
     actions: {
         createNewNote: function(){
@@ -46,11 +48,17 @@ Notes.NotesController = Ember.ArrayController.extend({
             } else{
                 alert('Note must have a unique name of at least 2 characters!');
             }
-        },
-        updateNewNote: function(){
+        }
+    }
+});
+
+Notes.NotesNoteController = Ember.ObjectController.extend({
+    actions: {
+        updateNote: function(){
             var content = this.get('content');
             console.log(content);
             if(content){
+                //content.set('value', 'blah blah');
                 content.save();
             }
         }

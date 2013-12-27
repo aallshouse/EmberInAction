@@ -11,7 +11,7 @@
     <script src="js/scripts/bootstrap-modal.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/scripts/handlebars-1.0.0.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/scripts/ember-1.0.0.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/scripts/ember-data-beta-1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/scripts/ember-data.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/scripts/ember-data-localstorage.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/app/app.js" type="text/javascript" charset="utf- 8"></script>
 
@@ -24,6 +24,8 @@
                 {{#each controller}}
                     {{#linkTo "notes.note" this class="list-group-item"}}
                         {{name}}
+
+                        <button class="btn btn-danger btn-xs pull-right" {{action "doDeleteNote" this}}>Delete</button>
                     {{/linkTo}}
                 {{/each}}
             </div>
